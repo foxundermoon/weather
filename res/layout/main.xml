@@ -161,10 +161,13 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="分开布局测试" />
+            android:id="@+id/text_kongqi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="空气质量"
+            android:textSize="15sp"
+            android:textColor="#FFCC88"
+            android:layout_margin="50dp" />
     </LinearLayout>
     <!-- 第三页 出行建议布局 -->
 
@@ -175,10 +178,13 @@
         android:orientation="vertical" >
 
         <TextView
-            android:id="@+id/view2"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/kongqi" />
+            android:id="@+id/text_jianyi"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/kongqi"
+            android:textSize="15sp"
+            android:textColor="#BBCC88"
+            android:layout_margin="50dp"  />
     </LinearLayout>
 
     <!-- 第四页   趋势图 -->

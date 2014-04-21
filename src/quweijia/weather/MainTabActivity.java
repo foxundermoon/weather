@@ -32,6 +32,8 @@ public class MainTabActivity extends TabActivity implements OnTabChangeListener 
 	private TextView text_fengxiang;
 	private TextView text_fengsu;
 	private LinearLayout edit_btn_area;
+	private TextView text_kongqi;
+	private TextView text_jianyi;
 
 	private static final int myMenuResources[] = { R.menu.menu_tianqi,
 			R.menu.menu_kongqi, R.menu.menu_jianyi, R.menu.menu_qushi };
@@ -86,6 +88,8 @@ public class MainTabActivity extends TabActivity implements OnTabChangeListener 
 		text_fengsu = (TextView) findViewById(R.id.text_fengsu);
 		text_fengxiang = (TextView) findViewById(R.id.text_fengxiang);
 		edit_btn_area = (LinearLayout) findViewById(R.id.edit_btn_area);
+		text_kongqi = (TextView)findViewById(R.id.text_kongqi);
+		text_jianyi = (TextView) findViewById(R.id.text_jianyi);
 
 		text_chengshi.setClickable(true);
 		text_chengshi.setOnClickListener(new OnClickListener() {
@@ -125,30 +129,65 @@ public class MainTabActivity extends TabActivity implements OnTabChangeListener 
 	}
 
 	protected void updateData() {
-		// TODO Auto-generated method stub
+		// TODO 更新数据并显示
+//		获取输入框的输入城市名称
 		String city = edit_chengshi.getText().toString();
 		if (city == null || "".equalsIgnoreCase(city)) {
 			showMsg("城市名称不能为空");
 		} else {
-			showMsg("你输出的城市是："+city);
-			text_chengshi.setText(city);
 			// 给Weather对象设置城市
 			wc.setCity(city);
-			// 提示稍等片刻
-			showMsg("稍等片刻,正在从网络获取数据", 3000);
 
 			// 通过api获取各天气数据
 			if (wc.checkout()) {
 				// 把数据分别更新到ui上面
-				Map<String,String>  weatherMap = wc.getWeatherMap();
-				showMsg(weatherMap.toString());
-//				text_wendu.setText(wc.getWendu());
-//				text_tianqi_status.setText(wc.getTianqiStatus());
-//				text_fengxiang.setText(wc.getFengxiang());
-//				text_fengsu.setText(wc.getFengsu());
+				tianqiDisplay(wc.getWeatherMap());
+				kongqiDisplay(wc.getKongqiMap());
 			} else {
 				showMsg("获取失败,请检查网络或接口是否可用");
 			}
+		}
+
+	}
+
+	private void kongqiDisplay(Map<String, String> m) {
+		// TODO 更新空气质量相关界面
+		if(m.containsKey("kongqi")){
+			text_kongqi.setText(m.get("kongqi"));
+		}
+		
+	}
+
+	private void tianqiDisplay(Map<String, String> weatherMap) {
+		// TODO 更新天气质量相关界面
+		Map<String, String> m = weatherMap;
+		if (m.containsKey("city")) {
+			text_chengshi.setText(m.get("city"));
+		}
+		if (m.containsKey("status1")) {
+			text_tianqi_status.setText(m.get("status1"));
+		}
+		if (m.containsKey("direction1")) {
+			text_fengxiang.setText(m.get("direction1"));
+		}
+		if (m.containsKey("power1")) {
+			text_fengsu.setText(m.get("power1"));
+		}
+		if(m.containsKey("temperature1")){
+			text_wendu.setText(m.get("temperature1"));
+		}
+		
+		if(m.containsKey("chy_shuoming")){
+			text_jianyi.setText("穿衣建议："+m.get("chy_shuoming"));
+		}
+		if(m.containsKey("yd_s")){
+			text_jianyi.append("\n\n运动说明："+m.get("yd_s"));
+		}
+		if(m.containsKey("gm_l")){
+			text_jianyi.append("\n\n感冒指数:"+m.get("gm_l"));
+		}
+		if(m.containsKey("gm_s")){
+			text_jianyi.append("\n\n感冒指数说明:"+m.get("gm_s"));
 		}
 
 	}
