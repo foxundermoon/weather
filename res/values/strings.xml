@@ -1,0 +1,13 @@
+<resources>
+
+    <string name="app_name">天气&amp;空气质量服务</string>
+
+    <string name="tianqi">天气</string>
+
+    <string name="kongqi">空气</string>
+
+    <string name="qushi">趋势</string>
+
+    <string name="jianyi">建议</string>
+
+</resources>

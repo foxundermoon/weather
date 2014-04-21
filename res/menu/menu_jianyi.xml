@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group android:id="@+id/group_a" >
+        <item
+            android:id="@+id/jianyi_btn"
+            android:title="Gimp">
+        </item>
+    </group>
+
+</menu>

@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/bg_480_800_light" >
+
+    <!-- 第一页  天气预报布局 -->
+
+    <LinearLayout
+        android:id="@+id/tab_tianqi"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <!-- 城市显示和切换 -->
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="40dp" >
+
+            <TextView
+                android:id="@+id/text_chengshi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="请选择城市"
+                android:textColor="#663399"
+                android:textSize="20sp" />
+
+            <!-- 点击城市文字以后显示输入城市 -->
+
+            <LinearLayout
+                android:id="@+id/edit_btn_area"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="invisible" >
+
+                <EditText
+                    android:id="@+id/edit_chengshi"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="请输入城市名"
+                    android:text="北京" />
+
+                <Button
+                    android:id="@+id/btn_chengshi"
+                    style="?android:attr/buttonStyleSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_weight="1"
+                    android:text="确定" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_wendu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="horizontal" >
+
+            <!-- 显示温度 -->
+
+            <TextView
+                android:id="@+id/text_wendu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dip"
+                android:layout_marginTop="40dip"
+                android:gravity="center"
+                android:text="23"
+                android:textColor="#99FFCC"
+                android:textSize="45sp"
+                android:textStyle="bold" />
+            <!-- 温度单位图 -->
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="50sp"
+                android:layout_height="50sp"
+                android:layout_gravity="center"
+                android:src="@drawable/ico_sheshidu" />
+
+            <!-- 显示天气情况   eg：晴转多云 -->
+
+            <TextView
+                android:id="@+id/text_tianqi_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="40dp"
+                android:layout_marginTop="0dp"
+                android:gravity="center"
+                android:text="晴转多云"
+                android:textColor="#8899CC33"
+                android:textSize="40sp" />
+        </LinearLayout>
+
+        <!-- 显示风向 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="80dp" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风向:   "
+                android:textColor="#CCCCFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_fengxiang"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="无持续风向"
+                android:textColor="#66CCCC"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <!-- 风级 -->
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风速:   "
+                android:textColor="#CCCCFF"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/text_fengsu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4级"
+                android:textColor="#66CCCC"
+                android:textSize="30sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- 第二页  空气质量播报布局 -->
+
+    <LinearLayout
+        android:id="@+id/tab_kongqi"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="分开布局测试" />
+    </LinearLayout>
+    <!-- 第三页 出行建议布局 -->
+
+    <LinearLayout
+        android:id="@+id/tab_jianyi"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/kongqi" />
+    </LinearLayout>
+
+    <!-- 第四页   趋势图 -->
+
+    <LinearLayout
+        android:id="@+id/tab_qushi"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+        </ImageView>
+    </LinearLayout>
+
+</FrameLayout>

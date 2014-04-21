@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- published at 2014-04-20 07:57:45 -->
+<Profiles>
+
+    <Weather>
+
+        <city>
+北京
+        </city>
+
+        <status1>
+多云
+        </status1>
+
+        <status2>
+晴
+        </status2>
+
+        <figure1>
+duoyun
+        </figure1>
+
+        <figure2>
+qing
+        </figure2>
+
+        <direction1>
+无持续风向
+        </direction1>
+
+        <direction2>
+无持续风向
+        </direction2>
+
+        <power1>
+≤3
+        </power1>
+
+        <power2>
+≤3
+        </power2>
+
+        <temperature1>
+23
+        </temperature1>
+
+        <temperature2>
+10
+        </temperature2>
+
+        <ssd>
+6
+        </ssd>
+
+        <tgd1>
+21
+        </tgd1>
+
+        <tgd2>
+21
+        </tgd2>
+
+        <zwx>
+1
+        </zwx>
+
+        <ktk>
+5
+        </ktk>
+
+        <pollution>
+3
+        </pollution>
+
+        <xcz>
+1
+        </xcz>
+
+        <zho>
+        </zho>
+
+        <diy>
+        </diy>
+
+        <fas>
+        </fas>
+
+        <chy>
+4
+        </chy>
+
+        <zho_shuoming>
+暂无
+        </zho_shuoming>
+
+        <diy_shuoming>
+暂无
+        </diy_shuoming>
+
+        <fas_shuoming>
+暂无
+        </fas_shuoming>
+
+        <chy_shuoming>
+套装、夹衣、风衣、夹克衫、西服套装、马甲衬衫配长裤
+        </chy_shuoming>
+
+        <pollution_l>
+轻度
+        </pollution_l>
+
+        <zwx_l>
+最弱
+        </zwx_l>
+
+        <ssd_l>
+温暖舒适
+        </ssd_l>
+
+        <fas_l>
+暂无
+        </fas_l>
+
+        <zho_l>
+暂无
+        </zho_l>
+
+        <chy_l>
+夹衣类
+        </chy_l>
+
+        <ktk_l>
+比较适宜(制热)
+        </ktk_l>
+
+        <xcz_l>
+非常适宜
+        </xcz_l>
+
+        <diy_l>
+暂无
+        </diy_l>
+
+        <pollution_s>
+对空气污染物扩散无明显影响
+        </pollution_s>
+
+        <zwx_s>
+紫外线最弱
+        </zwx_s>
+
+        <ssd_s>
+天气状况良好时，多到户外活动，并可适当增加户外活动时间。
+        </ssd_s>
+
+        <ktk_s>
+比较适宜开启空调
+        </ktk_s>
+
+        <xcz_s>
+洗车后至少未来4天内没有降水、大风、沙尘天气，保洁时间长。非常适宜洗车
+        </xcz_s>
+
+        <gm>
+1
+        </gm>
+
+        <gm_l>
+低发期
+        </gm_l>
+
+        <gm_s>
+天气舒适，不易发生感冒；
+        </gm_s>
+
+        <yd>
+1
+        </yd>
+
+        <yd_l>
+非常适宜
+        </yd_l>
+
+        <yd_s>
+非常适宜户外运动；
+        </yd_s>
+
+        <savedate_weather>
+2014-04-20
+        </savedate_weather>
+
+        <savedate_life>
+2014-04-20
+        </savedate_life>
+
+        <savedate_zhishu>
+2014-04-20
+        </savedate_zhishu>
+    </Weather>
+
+</Profiles>
