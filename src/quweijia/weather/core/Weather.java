@@ -7,6 +7,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,6 +18,9 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
+import org.apache.http.Header;
+import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.ResponseHandler;
@@ -37,6 +41,7 @@ public class Weather {
 	private static final String WEATHER_BASE_URL = "http://php.weather.sina.com.cn/xml.php?password=DJOYnieT8234jlsK";
 	private HttpClient hc;
 	public String testUrl = "http://php.weather.sina.com.cn/xml.php?city=%B1%B1%BE%A9&password=DJOYnieT8234jlsK&day=0";
+	String testKongqiUrl = "http://datacenter.mep.gov.cn/report/airAction.do?city=%BC%C3%C4%CF%CA%D0&startdate=2014-04-20&location=rq";
 	private String cityName;
 	private String cityNameGb2312;
 	private Map<String, String> weatherMap;
@@ -46,7 +51,7 @@ public class Weather {
 		hc = new DefaultHttpClient();
 		weatherMap = new HashMap<String, String>();
 		kongqiMap = new HashMap<String, String>();
-		
+
 	}
 
 	public void setCity(String city) {
@@ -101,8 +106,8 @@ public class Weather {
 	private boolean checkoutKongqi() {
 		// TODO Auto-generated method stub
 
-		 kongqiMap.put("kongqi", getKonqiInfo());
-		 return true;
+		kongqiMap.put("kongqi", getKonqiInfo());
+		return true;
 	}
 
 	private String getWeatherApiUrl() throws UnsupportedEncodingException {
@@ -131,6 +136,17 @@ public class Weather {
 
 	}
 
+	@SuppressLint("NewApi")
+	public String getKongqiInfoFromUrl(String strUrl)
+			throws ClientProtocolException, IOException {
+		// 把xml文件编码转换为utf-8
+		String rsp = download(strUrl);
+		return rsp;
+		// return new String(rsp.getBytes("ISO-8859-1"),
+		// Charset.forName("GB2312"));
+
+	}
+
 	// 从url地址下载字符串文件
 	private String download(String url) throws ClientProtocolException,
 			IOException {
@@ -147,10 +163,11 @@ public class Weather {
 		}
 		return URLEncoder.encode(city1, "GB2312");
 	}
+
 	private String getCityByGb2312(String name) {
 		// TODO Auto-generated method stub
 		try {
-			return  URLEncoder.encode(name, "GB2312");
+			return URLEncoder.encode(name, "GB2312");
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -188,30 +205,34 @@ public class Weather {
 	}
 
 	private String getStringDate() {
-		Date now = new Date();
+		Calendar c = Calendar.getInstance();
+		c.add(Calendar.DATE, -1);
 		SimpleDateFormat temp = new SimpleDateFormat("yyyy-MM-dd");
-		return temp.format(now);
+		return temp.format(c.getTime());
 	}
 
 	private String getKonqiInfo() {
-		String url;
+		String url = "http://datacenter.mep.gov.cn/report/airAction.do?city="
+				+ getCityByGb2312(cityName + "市") + "&startdate="
+				+ getStringDate() + "&location=rq";
+
 		try {
-			url = "http://datacenter.mep.gov.cn/report/airAction.do?city="
-					+ getCityByGb2312(cityName+"市") + "&startdate=" + getStringDate()
-					+ "&location=rq";
-			String html = getXmlStringFromUrl(url);
+
+			String html = getKongqiInfoFromUrl(url);
 			Pattern pattern = Pattern.compile(
-					"<font size=\"2px\" face=\"宋体\"> ([\\s\\S]*)<!--",
+					"<font size=\"2px\" face=\"宋体\">([^<]*?)<!--",
 					Pattern.MULTILINE);
 			Matcher matcher = pattern.matcher(html);
-			if(matcher.matches()){
-			return matcher.group();
-			}else{
-				return url+"\n"+html;
+			if (matcher.find()) {
+				String con = matcher.group(1);
+				String newCon = con.replaceAll("\\s+", "");
+				newCon = newCon.replaceAll("为", "为  ：");
+				newCon = newCon.replaceAll("，","\n\n\n\n" );
+				newCon = newCon.replaceAll("。", "");
+				return newCon;
+			} else {
+				return html;
 			}
-		} catch (UnsupportedEncodingException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (ClientProtocolException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -222,7 +243,5 @@ public class Weather {
 		return null;
 
 	}
-
-
 
 }

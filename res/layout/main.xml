@@ -42,8 +42,7 @@
                     android:layout_width="100dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="请输入城市名"
-                    android:text="北京" />
+                    android:hint="请输入城市名" />
 
                 <Button
                     android:id="@+id/btn_chengshi"
@@ -72,7 +71,6 @@
                 android:layout_marginLeft="50dip"
                 android:layout_marginTop="40dip"
                 android:gravity="center"
-                android:text="23"
                 android:textColor="#99FFCC"
                 android:textSize="45sp"
                 android:textStyle="bold" />
@@ -95,7 +93,6 @@
                 android:layout_marginRight="40dp"
                 android:layout_marginTop="0dp"
                 android:gravity="center"
-                android:text="晴转多云"
                 android:textColor="#8899CC33"
                 android:textSize="40sp" />
         </LinearLayout>
@@ -121,7 +118,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="无持续风向"
                 android:textColor="#66CCCC"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -146,7 +142,6 @@
                 android:id="@+id/text_fengsu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="4级"
                 android:textColor="#66CCCC"
                 android:textSize="30sp" />
         </LinearLayout>
@@ -164,10 +159,10 @@
             android:id="@+id/text_kongqi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="空气质量"
-            android:textSize="15sp"
+            android:layout_margin="50dp"
+            android:maxLines="1000"
             android:textColor="#FFCC88"
-            android:layout_margin="50dp" />
+            android:textSize="16sp" />
     </LinearLayout>
     <!-- 第三页 出行建议布局 -->
 
@@ -181,10 +176,10 @@
             android:id="@+id/text_jianyi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="50dp"
             android:text="@string/kongqi"
-            android:textSize="15sp"
             android:textColor="#BBCC88"
-            android:layout_margin="50dp"  />
+            android:textSize="15sp" />
     </LinearLayout>
 
     <!-- 第四页   趋势图 -->
